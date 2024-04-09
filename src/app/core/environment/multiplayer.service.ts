@@ -6,6 +6,7 @@ import TWEEN from "@tweenjs/tween.js";
 import {ThirdPersonService} from "../entities/controls/third-person.service";
 import {EnvironmentService} from "./environment.service";
 import {Character, CharacterService} from "../entities/character.service";
+import {environment} from "../../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -27,7 +28,7 @@ export class MultiplayerService {
   }
 
     connect() {
-      this.socket = io("http://localhost:3000");
+      this.socket = io(environment.url);
       this.socket.on('connect', function () {
         console.log('connect')
       });

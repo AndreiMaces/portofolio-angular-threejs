@@ -39,7 +39,6 @@ io.on("connection", (socket) => {
     io.emit("users", users);
   }, 50);
 });
-
 server.listen(3472, () => {
-  console.log("Server is running on http://localhost:3472");
+  console.log("Server is running on https://localhost:3472");
 });
