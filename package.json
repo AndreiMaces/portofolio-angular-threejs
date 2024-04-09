@@ -3,8 +3,10 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "start:dev": "ng serve --configuration development",
+    "start:prod": "ng serve --configuration production",
+    "build:dev": "ng build --configuration development",
+    "build:prod": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -18,7 +20,10 @@
     "@angular/platform-browser": "^14.1.0",
     "@angular/platform-browser-dynamic": "^14.1.0",
     "@angular/router": "^14.1.0",
+    "@tweenjs/tween.js": "^23.1.1",
     "rxjs": "~7.5.0",
+    "socket.io-client": "^4.7.5",
+    "troika-three-text": "^0.49.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
@@ -26,13 +31,18 @@
     "@angular-devkit/build-angular": "^14.1.0",
     "@angular/cli": "~14.1.0",
     "@angular/compiler-cli": "^14.1.0",
+    "@types/dat.gui": "^0.7.12",
     "@types/jasmine": "~4.0.0",
+    "@types/three": "^0.163.0",
+    "cannon-es": "^0.20.0",
+    "dat.gui": "^0.7.9",
     "jasmine-core": "~4.2.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
+    "three": "^0.163.0",
     "typescript": "~4.7.2"
   }
 }
