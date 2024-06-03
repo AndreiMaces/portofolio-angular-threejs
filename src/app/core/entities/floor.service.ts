@@ -12,7 +12,6 @@ export class FloorService {
   constructor(private environmentService: EnvironmentService) { }
 
   generate() {
-    console.log("Generating floor")
     const instance = new BaseEntity();
     instance.setGeometry(new THREE.PlaneGeometry());
     instance.setMaterial(new THREE.MeshLambertMaterial({color: 0xffffff, side: THREE.DoubleSide,}));

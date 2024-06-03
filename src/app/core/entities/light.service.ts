@@ -12,7 +12,6 @@ export class LightService {
   constructor(private environmentService: EnvironmentService) { }
 
   generatePointLight(x: number, y: number, z: number, target: THREE.Vector3 | null = null, color: number) {
-    console.log("Generating light")
     this.increaseCounter('point');
     const light = new THREE.PointLight(0xffffff, 10, 0, 0.5)
     light.color = new THREE.Color(color);
@@ -23,18 +22,15 @@ export class LightService {
   }
 
   generateSpotLight(x: number, y: number, z: number, target: THREE.Vector3) {
-    console.log("Generating spot light")
     this.increaseCounter('spot');
     const light = new THREE.SpotLight(0xffffff, 10, 0, 0.5)
     light.position.set(x, y, z)
     light.lookAt(new THREE.Vector3(target.x, 0, target.z));
     this.addGUI(light, 'spot');
-    console.log(target)
     return light;
   }
 
   generateAmbientLight(x: number, y: number, z: number, color: number = 0x12172a) {
-    console.log("Generating ambient light")
     if(!this.counter['ambient']) this.counter['point'] = 0;
     this.increaseCounter('ambient')
     const light = new THREE.AmbientLight(color, 0.5)
@@ -45,7 +41,6 @@ export class LightService {
   }
 
   generateDirectionalLight(x: number, y: number, z: number, target: THREE.Vector3 | null = null) {
-    console.log("Generating directional light")
     if(!this.counter['directional']) this.counter['directional'] = 0;
     this.increaseCounter('directional')
     const light = new THREE.DirectionalLight(0xffffff, 0.5)

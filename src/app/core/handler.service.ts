@@ -31,7 +31,6 @@ export class HandlerService {
   }
 
   async initialize() {
-    console.log("Initializing handler service")
     this.environmentService.scene.add(this.skyService.generate());
     this.environmentService.scene.add(this.floorService.generate());
     this.environmentService.scene.add(this.lightService.generateAmbientLight(100, 10, 0));

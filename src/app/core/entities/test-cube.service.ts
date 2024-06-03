@@ -13,7 +13,6 @@ export class TestCubeService {
   constructor(private environmentService: EnvironmentService) { }
 
   generate() {
-    console.log("Generating test cube")
     const instance = new BaseEntity();
     instance.setGeometry(new THREE.BoxGeometry());
     instance.setMaterial(new THREE.MeshBasicMaterial({color: 0x00ff00, wireframe: true,}));

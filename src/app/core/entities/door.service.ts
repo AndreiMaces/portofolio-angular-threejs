@@ -29,7 +29,6 @@ export class DoorService {
   constructor(private environmentService: EnvironmentService, private lightService: LightService) { }
 
   async generate(link: string, header: string, range = 100) {
-    console.log("Generating Door")
     this.counter++;
     const progressBar = this.environmentService.progressBar;
     const progressLabel = this.environmentService.progressLabel;

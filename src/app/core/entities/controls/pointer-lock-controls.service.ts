@@ -23,7 +23,6 @@ export class PointerLockControlsService {
 
   generate() {
     if(this.controls) return;
-    console.log("Generating pointer lock controls")
     this.controls =  new PointerLockControls(this.environmentService.camera, this.environmentService.renderer.domElement);
     this.controls.pointerSpeed = 2;
 
@@ -33,9 +32,7 @@ export class PointerLockControlsService {
     this.environmentService.addAnimationFunction(
       this.listenToKeyPress.bind(this)
     )
-    this.controls.addEventListener('lock', () => {
-      console.log("Pointer lock controls locked")
-    });
+
     this.addGUI()
   }
 
@@ -52,19 +49,15 @@ export class PointerLockControlsService {
 
   listenToKeyPress(speed = 0.35) {
     if (this.keyMap['KeyW'] || this.keyMap['ArrowUp']) {
-      console.log("Moving forward")
       this.controls.moveForward(speed)
     }
     if (this.keyMap['KeyS'] || this.keyMap['ArrowDown']) {
-      console.log("Moving backward")
       this.controls.moveForward(-speed)
     }
     if (this.keyMap['KeyA'] || this.keyMap['ArrowLeft']) {
-      console.log("Moving left")
       this.controls.moveRight(-speed)
     }
     if (this.keyMap['KeyD'] || this.keyMap['ArrowRight']) {
-      console.log("Moving right")
       this.controls.moveRight(speed)
     }
   }

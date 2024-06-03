@@ -26,7 +26,6 @@ export class EnvironmentService {
   progressLabel: HTMLHeadingElement;
   doors: Door[] = [];
   initializeEnvironment() {
-    console.log("Initializing environment")
     this.scene = new THREE.Scene();
     this.camera = new THREE.PerspectiveCamera(
       75,
@@ -51,7 +50,6 @@ export class EnvironmentService {
 
   // On window resize, adjust the camera aspect ratio and renderer size
   render() {
-    console.log("Resizing")
     this.camera.aspect = window.innerWidth / window.innerHeight;
     this.camera.updateProjectionMatrix();
     this.renderer.setSize(window.innerWidth, window.innerHeight);

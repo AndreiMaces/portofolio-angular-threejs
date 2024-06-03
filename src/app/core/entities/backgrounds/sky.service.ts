@@ -12,7 +12,6 @@ export class SkyService {
   constructor(private environmentService: EnvironmentService) { }
 
   generate() {
-    console.log("Generating sky")
     const instance = new BaseEntity();
     instance.setGeometry(new THREE.SphereGeometry());
     const material = new THREE.MeshBasicMaterial({color: 0xffffff, side: THREE.BackSide,})

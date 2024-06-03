@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { OverlayComponent } from './overlay.component';
+import {MobileModule} from "../core/mobile/mobile.module";
 
 
 
@@ -12,7 +13,8 @@ import { OverlayComponent } from './overlay.component';
         OverlayComponent
     ],
     imports: [
-        CommonModule
+        CommonModule,
+        MobileModule
     ]
 })
 export class OverlayModule { }

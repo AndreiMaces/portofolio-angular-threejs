@@ -29,9 +29,7 @@ export class MultiplayerService {
 
     connect() {
       this.socket = io(environment.url);
-      this.socket.on('connect', function () {
-        console.log('connect')
-      });
+
     }
 
     registerToMultiplayer(character: Character): void

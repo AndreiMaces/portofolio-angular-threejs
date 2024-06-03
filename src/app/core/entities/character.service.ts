@@ -126,8 +126,7 @@ export class CharacterService {
   constructor(private environmentService: EnvironmentService, private mixerService: MixerService, private lightService: LightService, private router: Router) { }
 
   async generateRandom(range = 100) {
-    //const randomIndex = Math.floor(Math.random() * this.characterOptions.length);
-    const randomIndex = 4;
+    const randomIndex = Math.floor(Math.random() * this.characterOptions.length);
     const character = this.characterOptions[randomIndex];
     let res = await this.generate(character.name, character.scale, Math.random() * 0xffffff);
     res.mesh.position.set((Math.random() * range) - range, -1, (Math.random() * range) - range);
@@ -135,7 +134,6 @@ export class CharacterService {
   }
 
   async generate(characterName: string = 'remy', scale: number = 0.01, color: number) {
-    console.log("Generating character named " + characterName);
     this.increaseCounter(characterName);
     const progressBar = this.environmentService.progressBar;
     const progressLabel = this.environmentService.progressLabel;
