@@ -28,7 +28,7 @@ export class MultiplayerService {
   }
 
     connect() {
-      this.socket = io(environment.url);
+      this.socket = io(environment.url || window.location.origin);
 
     }
 

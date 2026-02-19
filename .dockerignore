@@ -1,0 +1,24 @@
+# Dependencies
+node_modules
+**/node_modules
+
+# Build output (se construiește în Docker)
+dist
+
+# Git și IDE
+.git
+.gitignore
+.cursor
+.vscode
+.idea
+*.md
+
+# Test și temporare
+coverage
+.angular
+*.log
+.env
+.env.*
+
+# Nu trimitem server în stage-ul Angular (nu e nevoie la build)
+# server/ e copiat doar în stage-ul 2

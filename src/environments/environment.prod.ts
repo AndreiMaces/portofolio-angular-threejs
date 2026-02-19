@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  url: "https://portofolio-server.macesandrei.com"
+  // Gol = same origin (frontend și server pe același domeniu în CapRover)
+  url: ""
 };

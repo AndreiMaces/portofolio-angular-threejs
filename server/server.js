@@ -1,9 +1,21 @@
 const express = require("express");
+const path = require("path");
 const { createServer } = require("http");
 const cors = require("cors");
 
 const app = express();
 app.use(cors());
+
+// Servire statică pentru frontend Angular (build)
+const publicPath = path.join(__dirname, "public");
+app.use(express.static(publicPath));
+
+// SPA fallback: rute necunoscute → index.html (nu și /socket.io pentru WebSocket)
+app.get("*", (req, res, next) => {
+  if (req.path.startsWith("/socket.io")) return next();
+  res.sendFile(path.join(publicPath, "index.html"));
+});
+
 const server = createServer(app);
 const io = require("socket.io")(server, {
   cors: {
@@ -39,6 +51,8 @@ io.on("connection", (socket) => {
     io.emit("users", users);
   }, 50);
 });
-server.listen(3472, () => {
-  console.log("Server is running on https://localhost:3472");
+
+const PORT = process.env.PORT || 3472;
+server.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
